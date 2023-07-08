@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = account
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98

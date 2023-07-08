@@ -1,30 +1,20 @@
 #ifndef PHONEBOOK_H_INCLUDED
 #define PHONEBOOK_H_INCLUDED
 
+#include "Contact.hpp"
 #include <iostream>
-using namespace std;
-
-class Contact{
-
-	public: 
-	string 		first_name; 
-	string 		last_name; 
-	string 		nickname; 
-	string 		phone_number; 
-	string 		darkest_secret;
-
-	void	display(void)
-	{
-
-	}
-
-};
 
 class PhoneBook{
 
+	private:
+		Contact Contacts[8];
+		int	index;
 	public:
-	Contact Cons[8];
-	int	num;
+		PhoneBook(void);
+		~PhoneBook(void);
+		void	add(void);
+		void	search(void);
+		void	print_one_contact(Contact Contact);
 };
 
 #endif
