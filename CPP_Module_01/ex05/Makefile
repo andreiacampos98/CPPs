@@ -1,4 +1,4 @@
-NAME = file
+NAME = harl
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98
@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp
+SRCS =	main.cpp Harl.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} ${OBJS} -o ${NAME}
