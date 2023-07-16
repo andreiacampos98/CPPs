@@ -4,7 +4,7 @@ const int	Fixed::_fract_bits = 8;
 
 Fixed::Fixed(void) : _fp_value(0) //default constructor defination _fp_value default value is 0
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Fixed Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value)
@@ -21,18 +21,18 @@ Fixed::Fixed(const float value)
 
 Fixed::Fixed(Fixed const & copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Fixed Copy constructor called" << std::endl;
 	setRawBits(copy._fp_value); //used assignment operator
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Fixed Destructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &src) //operator overload
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Fixed Copy assignment operator called" << std::endl;
 	this->_fp_value = src.getRawBits(); /*setRawBits(src.getRawBits());*/
 	return(*this);
 }
