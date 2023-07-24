@@ -73,22 +73,22 @@ bool Fixed::operator!=(const Fixed &src) const
 
 /*Arithmetic operators*/
 
-Fixed Fixed::operator+(const Fixed &src)
+Fixed Fixed::operator+(const Fixed &src) const
 {
 	return (this->toFloat() + src.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed &src)
+Fixed Fixed::operator-(const Fixed &src) const
 {
 	return (this->toFloat() - src.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed &src)
+Fixed Fixed::operator*(const Fixed &src) const
 {
 	return (this->toFloat() * src.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed &src)
+Fixed Fixed::operator/(const Fixed &src) const
 {
 	return (this->toFloat() / src.toFloat());
 }

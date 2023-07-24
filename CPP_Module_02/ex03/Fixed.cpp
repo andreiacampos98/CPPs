@@ -4,35 +4,37 @@ const int	Fixed::_fract_bits = 8;
 
 Fixed::Fixed(void) : _fp_value(0) //default constructor defination _fp_value default value is 0
 {
-	std::cout << "Fixed Default constructor called" << std::endl;
+	//std::cout << "Fixed Default constructor called" << std::endl;
+	return ;
 }
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 	setRawBits(value * (1 << Fixed::_fract_bits));
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 	setRawBits(roundf(value * (1 << Fixed::_fract_bits)));
 }
 
 Fixed::Fixed(Fixed const & copy)
 {
-	std::cout << "Fixed Copy constructor called" << std::endl;
+	//std::cout << "Fixed Copy constructor called" << std::endl;
 	setRawBits(copy._fp_value); //used assignment operator
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Fixed Destructor called" << std::endl;
+	//std::cout << "Fixed Destructor called" << std::endl;
+	return ;
 }
 
 Fixed &Fixed::operator=(const Fixed &src) //operator overload
 {
-	std::cout << "Fixed Copy assignment operator called" << std::endl;
+	//std::cout << "Fixed Copy assignment operator called" << std::endl;
 	this->_fp_value = src.getRawBits(); /*setRawBits(src.getRawBits());*/
 	return(*this);
 }
@@ -73,22 +75,22 @@ bool Fixed::operator!=(const Fixed &src) const
 
 /*Arithmetic operators*/
 
-Fixed Fixed::operator+(const Fixed &src)
+Fixed Fixed::operator+(const Fixed &src) const
 {
 	return (this->toFloat() + src.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed &src)
+Fixed Fixed::operator-(const Fixed &src) const
 {
 	return (this->toFloat() - src.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed &src)
+Fixed Fixed::operator*(const Fixed &src) const
 {
 	return (this->toFloat() * src.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed &src)
+Fixed Fixed::operator/(const Fixed &src) const
 {
 	return (this->toFloat() / src.toFloat());
 }
@@ -156,7 +158,7 @@ const Fixed& Fixed::min(const Fixed& f1, const Fixed& f2)
 		
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return this->_fp_value;
 }
 
