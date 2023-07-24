@@ -6,20 +6,20 @@ int	main(void)
 	std::string value;
 	PhoneBook phone;
 
-	std::cout<<"The program only accept ADD, SEARCH and EXIT"<<std::endl;
-	while(std::cin >> value)
+	std::cout<<"The program only accept the following commands: ADD, SEARCH and EXIT"<<std::endl;
+	while (value != "EXIT")
 	{
+		std::cout << "Enter a command > ";
+		std::getline(std::cin, value);
 		if (value == "ADD")
 			phone.add();
 		else if (value == "SEARCH")
 			phone.search();
-		else if (value == "EXIT")
+		if (std::cin.eof())
 		{
-			std::cout << "Goodbye!\n";
-			return 0;
+			std::cout << std::endl;
+			return (0);
 		}
-		else
-			std::cout << "oh oh oh wrong input\n";
 	}
-	return 0;
+	return (0);
 }

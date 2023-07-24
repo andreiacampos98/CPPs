@@ -44,6 +44,7 @@ float Point::area(const Point &a, const Point &b, const Point &c)
 {
     Fixed _area;
 
-	_area = ((a._x*(b._y - (c._y)) + b._x*(c._y - a._y) + c._x*(a._y - b._y))/2);
+	//_area = ((a._x*(b._y - c._y) + b._x*(c._y - a._y) + c._x*(a._y - b._y))/2);
+	_area = (a._x - c._x) * (b._y - c._y) - (b._x - c._x) * (a._y - c._y);
     return (_area.toFloat());
 }

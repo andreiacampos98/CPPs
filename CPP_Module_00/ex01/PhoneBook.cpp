@@ -2,7 +2,7 @@
 
 PhoneBook::PhoneBook(void)
 {
-	this->index = 0;
+	this->_index = 0;
 	std::cout<< "Let's create a PhoneBook up to 8 contacts!!" << std::endl;
 }
 PhoneBook::~PhoneBook(void)
@@ -15,44 +15,48 @@ void	PhoneBook::add(void)
 	std::string str;
 
 	str = "";
-	/*if (this->index > 7)
+	if (this->_index > 7)
 		std::cout <<"We are replacing a contact " \
-			<< this->contacts[this->index % 8].get_first_name() << std::endl;*/
+			<< this->_Contacts[this->_index % 8].get_first_name() << std::endl;
 	while (!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter a first name: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->Contacts[this->index % 8].set_first_name(str);
+			this->_Contacts[this->_index % 8].set_first_name(str);
 	}
 	str = "";
 	while (!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter a last name: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->Contacts[this->index % 8].set_last_name(str);
+			this->_Contacts[this->_index % 8].set_last_name(str);
 	}
 	str = "";
 	while (!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter a nickname: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->Contacts[this->index % 8].set_nickname(str);
+			this->_Contacts[this->_index % 8].set_nickname(str);
 	}
 	str = "";
 	while (!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter a phonenumber: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->Contacts[this->index % 8].set_phone_number(str);
+			this->_Contacts[this->_index % 8].set_phone_number(str);
 	}
 	str = "";
 	while (!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter a darkest secret: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->Contacts[this->index % 8].set_darkest_secret(str);
+		{
+			this->_Contacts[this->_index % 8].set_darkest_secret(str);
+			std::cout << this->_Contacts[this->_index % 8].get_first_name() << \
+				" successfully added to phonebook [" << this->_index % 8 + 1 << "/8]" << std::endl;
+		}
 	}
-	this->index++;
+	this->_index++;
 }
 
 std::string add_spaces(int n)
@@ -106,23 +110,24 @@ int	print_list(Contact Contact[8])
 }
 void	PhoneBook::print_one_contact(Contact Contact)
 {
+	std::cout << std::endl << "Requesting detailed information..." << std::endl;
 	if(!Contact.get_first_name().size())
 	{
 		std::cout << "Failed!" <<std::endl;
 		return ;
 	}
 	std::cout <<"First name: " << Contact.get_first_name() <<std::endl;
-	std::cout <<"Last name: " << Contact.get_first_name() <<std::endl;
-	std::cout <<"Nickname: " << Contact.get_first_name() <<std::endl; 
-	std::cout <<"Phone number: " << Contact.get_first_name() <<std::endl; 
-	std::cout <<"Darkest secret: " << Contact.get_first_name() <<std::endl; 
+	std::cout <<"Last name: " << Contact.get_last_name() <<std::endl;
+	std::cout <<"Nickname: " << Contact.get_nickname() <<std::endl; 
+	std::cout <<"Phone number: " << Contact.get_phone_number() <<std::endl; 
+	std::cout <<"Darkest secret: " << Contact.get_darkest_secret() <<std::endl; 
 }
 
 void	PhoneBook::search(void)
 {
 	std::string str;
 
-	if (!print_list(this->Contacts))
+	if (!print_list(this->_Contacts))
 	{
 		std::cout <<"PhoneBook is empty" << std::endl;
 		return ;
@@ -133,12 +138,12 @@ void	PhoneBook::search(void)
 		if (std::getline(std::cin, str) && str != "")
 		{
 			if (str.size() == 1 && str[0] >= '1' && str[0] <= '8' && \
-					this->Contacts[str[0] - 1 - '0'].get_first_name().size())
+					this->_Contacts[str[0] - 1 - '0'].get_first_name().size())
 				break;
 		}
 		if (str != "")
 			std::cout <<"Invalid index!" <<std::endl;
 	}
 	if (!std::cin.eof())
-		this->print_one_contact(this->Contacts[str[0] - 1 - '0']);
+		this->print_one_contact(this->_Contacts[str[0] - 1 - '0']);
 }
