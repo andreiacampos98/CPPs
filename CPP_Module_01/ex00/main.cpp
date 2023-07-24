@@ -10,3 +10,5 @@ int main()
 	randomChump("Bruno");
 	delete z;
 }
+
+/*Bruno was allocated in stack and Andreia in heap*/

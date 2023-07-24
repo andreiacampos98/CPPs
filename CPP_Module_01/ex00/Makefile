@@ -1,6 +1,6 @@
 NAME = zombie
 
-CXX = c++
+CXX = c++ -fsanitize=address -g
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98
 OBJS_FOLDER = base
 VPATH = srcs/
