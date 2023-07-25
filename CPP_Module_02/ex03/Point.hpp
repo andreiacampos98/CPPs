@@ -18,7 +18,7 @@ class Point{
 
 		float getX( void ) const;
 		float getY( void ) const;
-		static float area(const Point &a, const Point &b, const Point &c);
+		static Fixed area(const Point &a, const Point &b, const Point &c);
 };
 
 bool bsp( Point const a, Point const b, Point const c, Point const point);
