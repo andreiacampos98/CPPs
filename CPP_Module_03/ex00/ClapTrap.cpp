@@ -93,7 +93,7 @@ void ClapTrap::attack(const std::string& target)
     }
     if (this->_hit_points <= 0)
     {
-        std::cout << "ClapTrap " << this->_name <<" is dead.";
+        std::cout << "ClapTrap " << this->_name <<" is dead." <<std::endl;
     }
 }
 
@@ -107,7 +107,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
     else
     {
-        std::cout << "ClapTrap " << this->_name << " is dead.";
+        std::cout << "ClapTrap " << this->_name << " is dead." <<std::endl;
     }
     if (this->_hit_points > 0)
         this->_hit_points = 0;
@@ -117,7 +117,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if( this->_energy_points <= 0 && this->_hit_points > 0)
     {
-        std::cout << "ClapTrap " << this->_name <<" can't repair without energy points.";
+        std::cout << "ClapTrap " << this->_name <<" can't repair without energy points." <<std::endl;
     }
     if( this->_energy_points > 0 && this->_hit_points > 0)
     {
@@ -128,6 +128,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     if (this->_hit_points <= 0)
     {
-        std::cout << "ClapTrap " << this->_name <<" is dead.";
+        std::cout << "ClapTrap " << this->_name <<" is dead." <<std::endl;
     }
 }
