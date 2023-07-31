@@ -2,18 +2,8 @@
 
 int main()
 {
-    /*std::string name;
-    std::string target;
-
-    name = "Andreia";
-    target = "Rui";
-	ClapTrap    A(name);
-    ClapTrap    B(target);
-    A.attack(target);*/
-    //B.takeDamage(100);
-    //B.beRepaired(100);
-    ClapTrap clap("Frank");
-	ClapTrap clap2;
+    ClapTrap clap("Frank"); //constructor
+	ClapTrap clap2; //default constructor
 
 	clap.takeDamage(5);
 	clap.takeDamage(4);
@@ -21,7 +11,7 @@ int main()
 	clap2.attack("John");
 	clap2.takeDamage(20);
 
-	clap2 = clap;
+	clap2 = clap; //copy assigment operator
 	clap2.setName("Gonk");
 
 	clap.beRepaired(8);

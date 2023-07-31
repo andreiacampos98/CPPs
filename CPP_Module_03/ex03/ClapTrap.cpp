@@ -84,7 +84,7 @@ void ClapTrap::attack(const std::string& target)
     if( this->_hit_points > 0 && this->_energy_points > 0)
     {
         std::cout << "ClapTrap " << this->_name <<" attacks " << target << ", causing ";
-        std::cout << this->_hit_points << " points of damage!" <<std::endl;
+        std::cout << this->_attack_damage << " points of damage!" <<std::endl;
         this->_energy_points--;
     }
     if( this->_energy_points <= 0 && this->_hit_points > 0 )
