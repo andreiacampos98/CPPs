@@ -89,7 +89,7 @@ void ClapTrap::attack(const std::string& target)
     }
     if( this->_energy_points <= 0 && this->_hit_points > 0 )
     {
-        std::cout << "ClapTrap " << this->_name <<" can't atack without energy points." << std::endl;
+        std::cout << "Attack function:ClapTrap " << this->_name <<" can't atack without energy points." << std::endl;
     }
     if (this->_hit_points <= 0)
     {

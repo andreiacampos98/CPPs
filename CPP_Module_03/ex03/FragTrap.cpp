@@ -2,9 +2,6 @@
 
 FragTrap::FragTrap()
 {
-	this->_hit_points = 100;
-    this->_energy_points = 100;
-    this->_attack_damage = 30;
     std::cout << "FragTrap from ClapTrap " << this->_name << " created" <<std::endl;
 }
 
