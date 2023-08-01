@@ -2,17 +2,17 @@
 
 ClapTrap::ClapTrap(): _name("default")
 {
-    this->_hit_points = 10;
-    this->_energy_points = 10;
-    this->_attack_damage = 0;
+    this->_hit_points = 100;
+    this->_energy_points = 100;
+    this->_attack_damage = 30;
     std::cout << "ClapTrap created" <<std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name)
 {
-    this->_hit_points = 10;
-    this->_energy_points = 10;
-    this->_attack_damage = 0;
+    this->_hit_points = 100;
+    this->_energy_points = 100;
+    this->_attack_damage = 30;
     std::cout << "ClapTrap created named " << this->_name <<std::endl;
 }
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -93,7 +93,7 @@ void ClapTrap::attack(const std::string& target)
     }
     if (this->_hit_points <= 0)
     {
-        std::cout << "ClapTrap " << this->_name <<" is dead."<<std::endl;
+        std::cout << "Attack function: ClapTrap " << this->_name <<" is dead."<<std::endl;
     }
 }
 
@@ -107,7 +107,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
     else
     {
-        std::cout << "ClapTrap " << this->_name << " is dead."<<std::endl;
+        std::cout << "Take Damage function: ClapTrap " << this->_name << " is dead."<<std::endl;
     }
 }
 
@@ -126,6 +126,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     if (this->_hit_points <= 0)
     {
-        std::cout << "ClapTrap " << this->_name <<" is dead." <<std::endl;
+        std::cout << "Be Repaired function: ClapTrap " << this->_name <<" is dead." <<std::endl;
     }
 }
