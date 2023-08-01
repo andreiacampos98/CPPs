@@ -38,12 +38,7 @@ void DiamondTrap::whoAmI()
 		std::cout << "Can't run whoAmI because: DiamondTrap: " << this->_name << " is dead." << std::endl;
 	else
 	{
-		std::cout << "DiamondTrap: " << this->_name << " created." << std::endl;
-		std::cout << "Claptrap: " << ClapTrap::_name << " created." << std::endl;
+		std::cout << "WhoAmI: DiamondTrap: " << this->_name << std::endl;
+		std::cout << "WhoAmI: Claptrap: " << ClapTrap::_name << std::endl;
 	}
 }
-
-/*void DiamondTrap::attack(std::string const &target)
-{
-	ScavTrap::attack(target);
-}*/
