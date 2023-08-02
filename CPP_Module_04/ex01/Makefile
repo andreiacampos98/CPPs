@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp Animal.cpp Cat.cpp Dog.cpp Wrong.cpp
+SRCS =	main.cpp Animal.cpp Cat.cpp Dog.cpp Wrong.cpp Brain.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} ${OBJS} -o ${NAME}

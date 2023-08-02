@@ -2,11 +2,13 @@
 
 Dog::Dog(): Animal("Dog")
 {
+	brain = new Brain();
 	std::cout << "Constructor Dog default with type " << this->_type << " created." << std::endl;
 }
 
 Dog::Dog(std::string type): Animal("Dog")
 {
+	brain = new Brain();
 	this->_type = type;
 	std::cout << "Constructor Dog with type " << this->_type << " created." << std::endl;
 }
@@ -27,6 +29,7 @@ Dog &Dog::operator=(const Dog &src)
 Dog::~Dog()
 {
 	std::cout << "Dog with type " << this->_type << " destroyed." << std::endl;
+	delete brain;
 }
 
 void Dog::makeSound() const

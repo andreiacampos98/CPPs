@@ -2,11 +2,13 @@
 
 Cat::Cat(): Animal("Cat")
 {
+	brain = new Brain();
 	std::cout << "Constructor Cat default with type " << this->_type << " created." << std::endl;
 }
 
 Cat::Cat(std::string type): Animal("Cat")
 {
+	brain = new Brain();
 	this->_type = type;
 	std::cout << "Constructor Cat with type " << this->_type << " created." << std::endl;
 }
@@ -27,6 +29,7 @@ Cat &Cat::operator=(const Cat &src)
 Cat::~Cat()
 {
 	std::cout << "Cat with type " << this->_type << " destroyed." << std::endl;
+	delete brain;
 }
 
 void Cat::makeSound() const
