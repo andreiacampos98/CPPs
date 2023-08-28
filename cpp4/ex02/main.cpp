@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:07:19 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/30 13:07:21 by aperez-b         ###   ########.fr       */
+/*   Updated: 2023/08/28 18:57:17 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,10 @@ int main(void)
 		delete catA;
 		delete catB;
 	}
+	const Animal* A;
+	const Animal* B;
+
+	A= new Animal();
+	B= new Dog();
 	return (0);
 }

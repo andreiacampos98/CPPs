@@ -11,16 +11,18 @@ int main()
 	const Animal* i = new Cat();
 	const WrongAnimal* g = new WrongAnimal();
 	const WrongAnimal* h = new WrongCat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << h->getType() << " " << std::endl;
+	std::cout<< "............................................" <<std::endl;
+	std::cout << "Animal type: " << j->getType() << std::endl;
+	std::cout << "Animal type: " << i->getType() << std::endl;
+	std::cout << "Animal type: " << h->getType() << std::endl;
+	std::cout<< "............................................" <<std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	k->makeSound();
 	meta->makeSound();
 	g->makeSound();
 	h->makeSound();
-
+	std::cout<< "............................................" <<std::endl;
 	delete meta;
 	delete j;
 	delete k;
