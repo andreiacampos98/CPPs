@@ -10,12 +10,12 @@ Cure::~Cure(void)
 	std::cout << "Cure destroyed" <<std::endl;
 }
 
-Cure(Cure const &copy): AMateria(copy)
+Cure::Cure(Cure const &copy): AMateria(copy)
 {
 	std::cout << "Cure copy constructor." <<std::endl;
 }
 	
-Cure const &operator=(Cure const &copy)
+Cure const &Cure::operator=(Cure const &copy)
 {
 	std::cout << "Cure copy assignment constructor." <<std::endl;
 	this->type = copy.type;
@@ -24,7 +24,7 @@ Cure const &operator=(Cure const &copy)
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals "  << target.getName() << "’s wounds" << std::endl;
+	std::cout << "* heals "  << target.getName() << "’s wounds *" << std::endl;
 }
 
 AMateria* Cure::clone() const

@@ -2,7 +2,10 @@
 #define CURE_HPP
 
 #include <iostream>
-#include "AMateria.hpp"
+
+#pragma once
+
+#include "ICharacter.hpp"
 
 class Cure: public AMateria
 {
@@ -12,9 +15,7 @@ class Cure: public AMateria
 		Cure(Cure const &copy);
 	
 		Cure const &operator=(Cure const &copy);
-		AMateria(std::string const & type);
-		std::string const & getType() const; //Returns the materia type
-		AMateria* clone() const;
+		virtual AMateria* clone() const;
 		void use(ICharacter& target);
 };
 

@@ -2,6 +2,9 @@
 #define IMATERIASOURCE_HPP
 
 #include <iostream>
+#pragma once
+
+
 #include "AMateria.hpp"
 
 class IMateriaSource

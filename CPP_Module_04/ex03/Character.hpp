@@ -2,6 +2,7 @@
 #define CHARACTER_HPP
 
 #include <iostream>
+#pragma once
 #include "ICharacter.hpp"
 
 class Character: public ICharacter
@@ -17,10 +18,12 @@ class Character: public ICharacter
 		~Character(void);
 		
 		std::string const & getName() const;
+		void	setName(std::string const &name1);
 		
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, Character& target);
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
+		int verifyinInventory(AMateria *materia);
 };
 
 #endif

@@ -1,4 +1,4 @@
-NAME = animal
+NAME = materia
 
 CXX = c++ -fsanitize=address -g
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98 -pedantic
@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp AMateria.cpp ICharacter.cpp IMateriaSource.cpp Cure.cpp Ice.cpp Materia.cpp Character.cpp MateriaSource.cpp
+SRCS =	main.cpp AMateria.cpp ICharacter.cpp IMateriaSource.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} ${OBJS} -o ${NAME}
