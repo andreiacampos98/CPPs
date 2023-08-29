@@ -28,6 +28,6 @@ all : ${NAME}
 
 re: fclean all
 
-.PHONY: ${NAME} fclean clean all re
+.PHONY: fclean clean re
 
 .SILENT:

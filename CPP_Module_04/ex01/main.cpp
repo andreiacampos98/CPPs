@@ -69,6 +69,5 @@ int main()
 		delete catA;
 		delete catB;
 	}
-
 	return 0;
 }
