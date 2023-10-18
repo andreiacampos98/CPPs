@@ -12,7 +12,7 @@ class WrongAnimal
 		WrongAnimal(std::string type);
 		WrongAnimal(const WrongAnimal &copy);
 		WrongAnimal &operator=(const WrongAnimal &src);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 
 		void makeSound() const;
 
@@ -22,6 +22,8 @@ class WrongAnimal
 
 class WrongCat: public WrongAnimal
 {
+	private:
+		std::string	_type;
 	public:
 		WrongCat();
 		WrongCat(std::string type);

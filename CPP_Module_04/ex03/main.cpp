@@ -56,7 +56,7 @@ int main()
 		delete src;
 		std::cout << std::endl;
 
-		std::cout << "4. Check maximum equipped too" << std::endl;
+		std::cout << "4. Check unequip" << std::endl;
 		AMateria *cure = new Cure();
 		AMateria *ice = new Ice();
 		dur2->equip(cure);

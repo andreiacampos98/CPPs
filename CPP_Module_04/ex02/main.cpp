@@ -7,7 +7,9 @@ int main()
 {
 	const Animal* j[5];
 	const Animal* i[5];
+	//const Animal*	teste;
 
+	//teste = new Animal();
 	for (int a=0; a < 4; a++)
 		j[a] = new Dog();
 	for (int a=0; a < 4; a++)
