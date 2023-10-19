@@ -23,7 +23,12 @@ Cat::Cat(const Cat &copy)
 Cat &Cat::operator=(const Cat &src)
 {
 	std::cout << "Cat Copy assignment operator called" << std::endl;
-	this->_type = src.getType();
+	if (this != &src)
+	{
+		this->_type = src.getType();
+		delete brain;
+		brain = new Brain(*src.brain);
+	}
 	return (*this);
 }
 

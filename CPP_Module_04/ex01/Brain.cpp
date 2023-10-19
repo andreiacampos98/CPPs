@@ -23,7 +23,7 @@ Brain::~Brain()
 	std::cout << "Brain destroyed." << std::endl;
 }
 
-void			Brain::set_idea(std::string const &ideas, int const index)
+void Brain::set_idea(std::string const &ideas, int const index)
 {
 	if (index >= 0 && index < 100)
 		this->_ideas[index] = ideas;

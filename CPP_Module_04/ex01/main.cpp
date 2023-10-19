@@ -25,6 +25,24 @@ int main()
 		delete j[a];
 	for (int a=0; a < 5; a++)
 		delete i[a];
+		
+	Dog dog1;
+	Dog dog2(dog1);
+
+	dog1.getBrain().set_idea("Dog1\n", 1);
+	std::cout << dog1.getBrain().get_idea(1) <<std::endl;
+	std::cout << dog2.getBrain().get_idea(1) <<std::endl;
+	std::cout << "\n";
+
+	std::cout << "\n\n";
+
+	Cat cat1;
+	Cat cat2;
+	cat2 = cat1;
+	cat1.getBrain().set_idea("cat1\n", 1);
+	std::cout << cat1.getBrain().get_idea(1) <<std::endl;
+	std::cout << cat2.getBrain().get_idea(1) <<std::endl;
+	std::cout << "\n";
 
 	std::cout << "-------------------------------------\n\n";
 	{

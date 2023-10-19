@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:44:25 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 23:17:10 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:59:17 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 	try
 	{
 		if (grade < 1)
-			std::cout << "Grade too high" << std::endl;
+			throw Bureaucrat::GradeTooHighException();
 		if (grade > 150)
-			std::cout << "Grade too low" << std::endl;
+			throw Bureaucrat::GradeTooLowException();
 		_grade = grade;
 		std::cout << "Bureaucrat constructor named " << this->_name << " and grade equal to " << this->_grade << std::endl
 	}
@@ -58,13 +58,41 @@ std::int Bureaucrat::getGrade(void)
 {
 	return(this->_grade);
 }
+
 void Bureaucrat::incrementGrade(Bureaucrat bur)
 {
-	if (this->_grade > 1 && this->_grade <= 150)
-		this->_grade--;
+	try
+	{
+		if (_grade == 1)
+			throw Bureaucrat::GradeTooHighException();
+		_grade--;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Error!" << e.what() << std::endl;
+	}
 }
-void Bureaucrat::decrementGrade(Bureaucrat bur)
+
+void Bureaucrat::decrementGrade()
 {
-	if (this->_grade >= 1 && this->_grade < 150)
-		this->_grade++;
+	try
+	{
+		if (_grade == 150)
+			throw Bureaucrat::GradeTooLowException();
+		_grade++;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Error!" << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::GradeTooHighException(void)
+{
+	std::cout << "Grade too high" << std::endl;
+}
+
+void	Bureaucrat::GradeTooLowException(void)
+{
+	std::cout << "Grade too low" << std::endl;
 }
