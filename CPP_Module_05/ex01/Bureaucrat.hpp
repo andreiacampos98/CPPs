@@ -6,16 +6,19 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:44:28 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/10/20 19:47:31 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/20 22:32:16 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,6 +36,8 @@ class Bureaucrat
 		int getGrade(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
+		void		signForm(Form &A);
+
 	class GradeTooHighException: public std::exception
 	{
 		public:
