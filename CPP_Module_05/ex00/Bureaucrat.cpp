@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:44:25 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/10/20 22:19:24 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:32:35 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,16 +101,4 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat const& src)
 {
 	os << src.getName() << ", bureaucrat grade " << src.getGrade() << std::endl;
 	return(os);
-}
-
-void		Bureaucrat::signForm(Form &A);
-{
-	if (_signed == 1)
-	{
-		std::cout << _name << " signed " << A.getName() << std::endl;
-	}
-	else
-	{
-		std::cout << _name << " couldn't sign " << A.getName() << " because "  << std::endl;
-	}
 }

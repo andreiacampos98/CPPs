@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:44:25 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/10/20 19:52:19 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 14:07:19 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src): _name(src._name)
 {
-	//_name = src._name;
 	_grade = src._grade;
 	std::cout << "Copy constructor called." << std::endl;
 }
@@ -46,7 +45,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &src)
 	{
-		//this->_name = src.getName();
 		this->_grade = src._grade;
 	}
 	return (*this);
@@ -101,4 +99,23 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat const& src)
 {
 	os << src.getName() << ", bureaucrat grade " << src.getGrade() << std::endl;
 	return(os);
+}
+
+void Bureaucrat::signForm(Form &A)
+{
+	try
+	{
+		if (A.getFormSigned() == true)
+		{
+			std::cout << A.getFormName() << ", form already signed " << std::endl;
+		}
+		else
+		{
+			A.beSigned(*this);
+		}
+	}
+	catch(std::exception &e)
+	{
+		std::cout << _name << " couldn't sign " << A.getFormName() << " because "  << e.what() << std::endl;
+	}
 }
