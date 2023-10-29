@@ -1,4 +1,4 @@
-NAME = form
+NAME = serializer
 
 CXX = c++ -fsanitize=address -g
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98 -pedantic
@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp Bureaucrat.cpp Form.cpp
+SRCS =	main.cpp Serializer.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} ${OBJS} -o ${NAME}
