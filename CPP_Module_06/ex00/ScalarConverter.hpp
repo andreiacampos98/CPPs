@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:06:50 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/10/28 22:59:21 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/29 11:23:35 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ class ScalarConverter
 		float		f_float;
 		double		d_double;
 		std::string	_arg;
-	public:
 		ScalarConverter();
+	public:
 		ScalarConverter(const ScalarConverter &src);
 		ScalarConverter  &operator=(const ScalarConverter &src);
-		~ScalarConverter();
+		virtual ~ScalarConverter();
 
-		void	converter(std::string str);
+		static void	converter(std::string str);
 
-		bool	is_int(std::string str);
-		bool	is_char(std::string str);
-		bool	is_double(std::string str);
-		bool	is_float(std::string str);
-		bool	is_nan(std::string str);
-		bool	is_inf(std::string str);
+		static bool	is_int(std::string str);
+		static bool	is_char(std::string str);
+		static bool	is_double(std::string str);
+		static bool	is_float(std::string str);
+		static bool	is_nan(std::string str);
+		static bool	is_inf(std::string str);
 
-		void	convertFromInt();
-		void	convertFromChar();
-		void	convertFromDouble();
-		void	convertFromFloat();
-		void	convertFromInf();
-		void	convertFromNan();
+		static void	convertFromInt(std::string str);
+		static void	convertFromChar(std::string str);
+		static void	convertFromDouble(std::string str);
+		static void	convertFromFloat(std::string str);
+		static void	convertFromInf(std::string str);
+		static void	convertFromNan(std::string str);
 };
 
 #endif

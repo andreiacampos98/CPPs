@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:10:51 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/10/28 13:45:08 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/29 11:05:22 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main(int argc, char **argv)
 	{
 		const char* str;
 		str = argv[1];
-		ScalarConverter A=ScalarConverter();
-		A.converter(str);
+		ScalarConverter::converter(str);
 	}
 }
