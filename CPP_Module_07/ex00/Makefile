@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp Base.cpp
+SRCS =	main.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} ${OBJS} -o ${NAME}
