@@ -48,16 +48,29 @@ void	easyfind(T& value1, int value2)
 }
 
 
-/*containers
+/* Components of STL: containers, iterators, algorithm and functors
+containers - are just array like data structures that store the collection of objects;
+Containers are object that handle a collection of other objects (elements) implementing a well defined structure.
    - sequence:
 		- vector: elements are stored contiguously, have a dynamic size array, 
 		usually occupy more space than static arrays because more memory is allocated to handle future growth;
-		- stack: ;
-		- queue;
+		- std::array;
 		- list: double linked list (next and previous pointer);
 		- deque: double ended queue (push and pop functions to move);
-		- std::array;
+		- stack: ;
+		- queue: use FIFO when we do push and pop;
 		- containers adaptors: interfaces that implement special functionality on top of sequence containers;
 	- associative:
 		- Ordered (set: model of mathematical set: {x1, x2, x3, x4}, collection , map: set of pairs, multimap, multiset);
-		- Unordered (nao sei);*/
+		- Unordered (nao sei);
+  
+  Iterators are objects that enable traversal of containers in some order, for either reading or writing.
+  Iterators are defined as templates and must comply with a very specific set of rules in order to qualify as one of many types of iterators.
+  Pointers are a particular type of integers.
+  Types of iterators:
+  	- input: only able to read, only moves forward (++it ot it++)
+   	- output: only able to write, only moves forward
+    	- forward: it has the features of input and output, 
+     	- Bidirectional: all features of forward iterators and it is possible to move backward;
+      	- Random-Access: all features for bidirectional and it is possible to acess a specific index
+       */
