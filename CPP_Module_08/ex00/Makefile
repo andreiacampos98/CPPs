@@ -1,4 +1,4 @@
-NAME = type
+NAME = easyfind
 
 CXX = c++ -fsanitize=address -g
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98 -pedantic
