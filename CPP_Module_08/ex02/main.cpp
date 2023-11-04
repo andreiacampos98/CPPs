@@ -24,5 +24,28 @@ int main()
     ++it;
   }
   std::stack<int> s(mstack);
+  std::cout << "Now with list!!!" << std::endl;
+  std::list<int> lst;
+  lst.push(5);
+  lst.push(17);
+  std::cout << lst.top() << std::endl;
+  lst.pop();
+  std::cout << lst.size() << std::endl;
+  lst.push(3);
+  lst.push(5);
+  lst.push(737);
+
+  //[...]
+  lst.push(0);
+  MutantStack<int>::iterator lst_it = lst.begin();
+  MutantStack<int>::iterator lst_ite = lst.end();
+  ++it;
+  --it;
+  while (lst_it != lst_ite)
+  {
+    std::cout << *lst_it << std::endl;
+    ++lst_it;
+  }
+  std::list<int> l(lst);
   return 0;
 }
