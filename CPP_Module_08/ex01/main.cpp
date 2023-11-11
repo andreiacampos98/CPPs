@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:44:10 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/11/04 00:05:06 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/11/11 00:30:34 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,21 @@ int main()
 	sp.addNumber(11);
 
 
-	sp.shortestSpan();
-	sp.longestSpan();
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan()<< std::endl;
+	
+	Span sp1 = Span(1);
+	std::cout << "Shortest span: " << sp1.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp1.longestSpan()<< std::endl;
+
+	Span sp2 = Span(20);
+	sp2.addNumber(147483648);
+	sp2.addNumber(2147483647);
+	sp2.addNumber(-2147483648);
+	sp2.addNumber(147483648);
+	sp2.print_vector();
+	std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp2.longestSpan()<< std::endl;
 	//std::cout << sp.shortestSpan() << std::endl;
 	//std::cout << sp.longestSpan() << std::endl;
 

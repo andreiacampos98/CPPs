@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:43:07 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/11/04 00:20:19 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/11/10 23:07:46 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Span
 		~Span();
 
 		void addNumber(int value);
-		int shortestSpan();
-		int longestSpan();
+		long int shortestSpan();
+		long int longestSpan();
 		void print_vector();
 
 	class SpanFull: public std::exception
