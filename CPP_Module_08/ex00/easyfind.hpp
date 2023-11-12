@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:16:52 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/11/03 21:39:04 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/11/12 10:53:02 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,39 @@
 #include <stdexcept>
 #include <bits/stdc++.h> 
 
-class EasyFind
+class ValueNotFound:public std::exception
 {
 	public:
-	
-		class ValueNotFound:public std::exception
+		virtual const char* what() const throw()
 		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return "The value wasn't found";
-				}
-		};
+			return "The value wasn't found";
+		}
 };
 
 template<typename T>
-void	easyfind(T& value1, int value2)
+typename T::iterator	easyfind(T& value1, int value2)
 {
-	std::sort(value1.begin(), value1.end());
-	try
+	for (typename T::iterator it = value1.begin(); it != value1.end(); it++)
 	{
-		if (std::find(value1.begin(), value1.end(), value2) != value1.end()) 
-			std::cout << "\nElement found in the array\n";
-		else
-			throw EasyFind::ValueNotFound();
+		if (*it == value2) 
+		{
+			std::cout << value2 << " was found.\n";
+			return it;
+		}
 	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	throw ValueNotFound();
 }
+/*
+STL_container < type >::iterator p;
+for (p = container.begin(); p != container.end(); p++)
+	process_element_at_location p;
 
+Ex:
+vector<int> v1;
+// FILL v1 WITH SOME VALUES ...
+vector<int>::iterator p;
+for (p = v1.begin(); p != v1.end(); p++)
+	cout << *p << endl; // ... AND SHOW THE VALUES*/
 
 /* Components of STL: containers, iterators, algorithm and functors
 containers - are just array like data structures that store the collection of objects;
@@ -70,7 +72,7 @@ Containers are object that handle a collection of other objects (elements) imple
   Types of iterators:
   	- input: only able to read, only moves forward (++it ot it++)
    	- output: only able to write, only moves forward
-    	- forward: it has the features of input and output, 
-     	- Bidirectional: all features of forward iterators and it is possible to move backward;
-      	- Random-Access: all features for bidirectional and it is possible to acess a specific index
-       */
+    - forward: it has the features of input and output, 
+    - Bidirectional: all features of forward iterators and it is possible to move backward;
+    - Random-Access: all features for bidirectional and it is possible to acess a specific index
+*/

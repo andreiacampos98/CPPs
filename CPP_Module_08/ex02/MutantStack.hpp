@@ -12,13 +12,16 @@ template<typename T, typename ContainerType = std::deque<T> >
 class MutantStack:public std::stack<T, ContainerType>
 {
   public:
-    MutantStack(): MutantStack<T, ContainerType>::stack() {};
-    MutantStack(const MutantStack<T, ContainerType>& other): MutantStack<T, ContainerType>::stack(other){};
+    MutantStack(): MutantStack<T, ContainerType>::stack() {std::cout << "Constructor MutantStack\n";};
+    MutantStack(const MutantStack<T, ContainerType>& other): MutantStack<T, ContainerType>::stack(other){
+      std::cout << "Copy\n";
+    };
     virtual ~MutantStack(){};
 
-    MutantStack& operator=(const MutantStack& src)
+    MutantStack<T, ContainerType>& operator=(const MutantStack<T, ContainerType> &src)
     {
-      if (this != src)
+      std::cout << "Copy assignment\n";
+      if (this != &src)
         this->MutantStack<T, ContainerType>::stack::operator=(src);
       return (*this);
     }

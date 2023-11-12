@@ -38,15 +38,15 @@ int main()
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
-  std::cout << "\n---Iterator---" << std::endl;
+  	std::cout << "\n---Iterator---" << std::endl;
 	while (it != ite)
 	{
-    std::cout << *it << std::endl;
-    ++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
 	std::stack<int> s(mstack);
 
-  std::cout << "\n--- Reverse iterator ---" << std::endl;
+	std::cout << "\n--- Reverse iterator ---" << std::endl;
 
 	MutantStack<std::string> rev;
 
@@ -63,7 +63,6 @@ int main()
 	std::cout << "\n--- Copy constructor ---" << std::endl;
 
 	MutantStack<int> copy(mstack);
-	MutantStack<int> a_copy = mstack;
 
 	copy.pop();
 	copy.pop();
@@ -77,6 +76,8 @@ int main()
 		std::cout << *copy_itr << std::endl;
 
 	std::cout << "\n--- Assignment operator ---" << std::endl;
+	MutantStack<int> a_copy;
+	a_copy = mstack;
 
 	a_copy.pop();
 	a_copy.pop();
@@ -88,28 +89,27 @@ int main()
 	MutantStack<int>::iterator a_copy_itr = a_copy.begin();
 	for (; a_copy_itr != a_copy.end(); a_copy_itr++)
 		std::cout << *a_copy_itr << std::endl;
-  /*
-	std::cout << "Now with list!!!" << std::endl;
+
+	std::cout << "\nNow with list!!!" << std::endl;
 	std::list<int> lst;
 	lst.push_back(5);
 	lst.push_back(17);
-	std::cout << lst.front() << std::endl; //top = front in list
+	std::cout << "Top: " << lst.back() << std::endl;
 	lst.pop_back();
-	std::cout << lst.size() << std::endl;
+	std::cout << "Size: " << lst.size() << std::endl;
 	lst.push_back(3);
 	lst.push_back(5);
 	lst.push_back(737);
-
 	lst.push_back(0);
-	MutantStack<int>::iterator lst_it = lst.begin();
-	MutantStack<int>::iterator lst_ite = lst.end();
+	std::list<int>::iterator lst_it = lst.begin();
+	std::list<int>::iterator lst_ite = lst.end();
 	++it;
 	--it;
 	while (lst_it != lst_ite)
 	{
-    std::cout << *lst_it << std::endl;
-    ++lst_it;
-  }
-  std::list<int> l(lst);*/
-  return 0;
+		std::cout << *lst_it << std::endl;
+		++lst_it;
+  	}
+	std::list<int> l(lst);
+	return 0;
 }

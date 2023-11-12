@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:43:40 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/11/11 10:19:42 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/11/12 12:46:12 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,18 @@ void	Span::addNumber(int value)
 	_values.push_back(value);
 }
 
+void Span::addNumber(const std::vector<int>::iterator& begin, const std::vector<int>::iterator& end)
+{
+	int range = std::distance(begin, end);
+	if (range + _values.size() > _N )
+	{
+		_values.insert(_values.end(), begin, begin + (this->_N - this->_values.size()));
+		throw Span::SpanFull();
+	}
+	else
+		_values.insert(_values.end(), begin, end);
+}
+
 long int	Span::longestSpan()
 {
 	long max;
@@ -85,4 +97,5 @@ void	Span::print_vector()
 {
 	for (unsigned int i = 0; i < _values.size(); i++)
 		std::cout << "Span[" << i << "] = " << _values[i] << std::endl;
+	std::cout << "Size = " << _N << std::endl;
 }

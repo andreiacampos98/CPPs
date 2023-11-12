@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:43:07 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/11/11 09:59:47 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/11/12 11:41:56 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span
 		~Span();
 
 		void addNumber(int value);
+		void addNumber(const std::vector<int>::iterator& begin, const std::vector<int>::iterator& end);
 		long int shortestSpan();
 		long int longestSpan();
 		void print_vector();

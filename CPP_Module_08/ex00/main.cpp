@@ -6,7 +6,7 @@
 /*   By: anaraujo <anaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:16:20 by anaraujo          #+#    #+#             */
-/*   Updated: 2023/11/03 21:41:07 by anaraujo         ###   ########.fr       */
+/*   Updated: 2023/11/12 10:16:30 by anaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,14 @@ int main()
 	a.pop_back();
 	std::cout << "Size = " << a.size() << " after pop back." << std::endl;
 	
-	easyfind(a, 2);
-	easyfind(a, -10);
-	easyfind(a, 100);
+	//std::vector<int>::iterator it_vector = easyfind(a, 2);
+	try{
+		easyfind(a, 2);
+		easyfind(a, -10);
+		easyfind(a, 100);
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
