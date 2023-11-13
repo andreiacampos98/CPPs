@@ -8,21 +8,21 @@
 
 /*https://youtu.be/F9eDv-YIOQ0?si=YEeBVnnbk4IqYuci*/
 
-template<typename T, typename ContainerType = std::deque<T> >
+template<typename T>
 class MutantStack:public std::stack<T, ContainerType>
 {
   public:
-    MutantStack(): MutantStack<T, ContainerType>::stack() {std::cout << "Constructor MutantStack\n";};
-    MutantStack(const MutantStack<T, ContainerType>& other): MutantStack<T, ContainerType>::stack(other){
+    MutantStack(): MutantStack<T>::stack() {std::cout << "Constructor MutantStack\n";};
+    MutantStack(const MutantStack<T>& other): MutantStack<T>::stack(other){
       std::cout << "Copy\n";
     };
     virtual ~MutantStack(){};
 
-    MutantStack<T, ContainerType>& operator=(const MutantStack<T, ContainerType> &src)
+    MutantStack<T>& operator=(const MutantStack<T> &src)
     {
       std::cout << "Copy assignment\n";
       if (this != &src)
-        this->MutantStack<T, ContainerType>::stack::operator=(src);
+        this->MutantStack<T>::stack::operator=(src);
       return (*this);
     }
 
