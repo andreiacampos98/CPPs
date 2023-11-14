@@ -10,7 +10,7 @@ OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
 SRCS =	main.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
-	${CXX} ${OBJS} -o ${NAME}
+	${CXX} $(CXXFLAGS) ${OBJS} -o ${NAME}
 
 ${OBJS_FOLDER}:
 	mkdir -p base
