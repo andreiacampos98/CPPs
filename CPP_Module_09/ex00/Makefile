@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp
+SRCS =	main.cpp BitcoinExchange.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} $(CXXFLAGS) ${OBJS} -o ${NAME}
