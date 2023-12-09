@@ -1,4 +1,4 @@
-NAME = mutantstack
+NAME = rpn
 
 CXX = c++ -fsanitize=address -g
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98 -pedantic
@@ -7,7 +7,7 @@ VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp
+SRCS =	main.cpp RPN.cpp
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} $(CXXFLAGS) ${OBJS} -o ${NAME}

@@ -1,13 +1,14 @@
-NAME = PmergeMe
+NAME = spell
 
 CXX = c++ -fsanitize=address -g
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Iincludes -std=c++98
 OBJS_FOLDER = base
 VPATH = srcs/
 RM = rm -rf
 
 OBJS = ${SRCS:%.cpp=${OBJS_FOLDER}/%.o}
-SRCS =	main.cpp PmergeMe.cpp
+SRCS =	ASpell.cpp ATarget.cpp Warlock.cpp main.cpp Fwoosh.cpp Dummy.cpp Fireball.cpp Polymorph.cpp BrickWall.cpp TargetGenerator.cpp SpellBook.cpp
+
 
 ${NAME}: ${OBJS_FOLDER} ${OBJS}
 	${CXX} $(CXXFLAGS) ${OBJS} -o ${NAME}
