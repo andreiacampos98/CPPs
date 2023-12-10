@@ -5,8 +5,14 @@ int main(int argc, char **argv)
 	(void) argv;
 	if (argc == 2)
 	{
-		BitcoinExchange	btc;
-		btc.readInput(argv[1]);
+		try{
+			BitcoinExchange	btc;
+			btc.readInput(argv[1]);
+		}
+		catch(std::exception &e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
 	}
 	else
 	{

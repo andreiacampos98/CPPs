@@ -3,7 +3,6 @@
 
 #include <stack>
 #include <iostream>
-#include <list>
 #include <sstream>
 
 void parser(std::string arg);

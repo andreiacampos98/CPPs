@@ -6,7 +6,7 @@ BitcoinExchange::BitcoinExchange()
 	std::string line;
 	file.open("data.csv");
 	if(!file.is_open())
-		return ;
+		throw std::invalid_argument("File data.csv didn't exist.") ;
 	else
 	{
 		getline(file, line);

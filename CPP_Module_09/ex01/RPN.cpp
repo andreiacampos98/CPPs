@@ -1,23 +1,33 @@
 #include "RPN.hpp"
 
-void	calculate(std::stack<int> *stack, char character)
+void	calculate(std::stack<int> &stack, char character)
 {
 	int	first;
 	int second;
 
-	second = stack->top();
-	stack->pop();
-	first = stack->top();
-	stack->pop();
-	if(character == '+')
-		stack->push(first + second);
-	if(character == '-')
-		stack->push(first - second);
-	if(character == '*')
-		stack->push(first * second);
-	if(character == '/')
-		stack->push(first / second);
-	std::cout << first << " " << character << " " << second << " = " << stack->top() << std::endl;
+	if(!stack.empty())
+	{
+		second = stack.top();
+		stack.pop();
+	}
+	if(!stack.empty())
+	{
+		first = stack.top();
+		stack.pop();
+		if(character == '+')
+			stack.push(first + second);
+		if(character == '-')
+			stack.push(first - second);
+		if(character == '*')
+			stack.push(first * second);
+		if(character == '/')
+		{
+			if(second == 0)
+				throw std::invalid_argument(" It isn't possible divide by 0.\n");
+			stack.push(first / second);
+		}
+		std::cout << first << " " << character << " " << second << " = " << stack.top() << std::endl;
+	}
 }
 
 void parser(std::string arg)
@@ -40,7 +50,7 @@ void parser(std::string arg)
 		}
         else
 		{
-			calculate(&stack, character);
+			calculate(stack, character);
 		}
     }
 }
