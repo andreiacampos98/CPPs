@@ -25,7 +25,7 @@ PmergeMe::PmergeMe(int argc, char **argv)
 		std::cout << "Before: ";
 		print(v);
 		print(d);
-
+		this->mergeInsertionSort(v);
 		std::cout << "After: ";
 		print(v);
 		print(d);
@@ -39,8 +39,18 @@ PmergeMe::PmergeMe(int argc, char **argv)
 }
 
 PmergeMe::~PmergeMe(){}
-//PmergeMe::PmergeMe(PmergeMe const &copy){}
-//PmergeMe &PmergeMe::operator=(PmergeMe const &copy){}
+
+PmergeMe::PmergeMe(PmergeMe const &copy)
+{
+	*this = copy;
+}
+
+/*PmergeMe &PmergeMe::operator=(PmergeMe const &copy)
+{
+	this = copy;
+	return (*this);
+}*/
+
 
 bool PmergeMe::myIsDigit(std::string str)
 {
@@ -106,15 +116,65 @@ void PmergeMe::generateJacobsthalSequence(std::vector<size_t> &v)
 		v[i] = (pow(2, i + 2) - pow(-1, i + 2)) / 3;
 }
 
+void PmergeMe::insertationSort(std::vector<int> &S, size_t n, std::vector<std::vector<int>> &vv)
+{
+	for (size_t i = 0 ; i < n && vv[i][0] != -1; i++)
+		S.push_back(vv[i][0]);
+}
+
+void PmergeMe::merge(std::vector<std::vector<int> > &left, std::vector<std::vector<int> > &right, std::vector<std::vector<int> > &vv)
+{
+	vv.clear();
+	while (!left.empty() && !right.empty())
+	{
+		if (left[0][0] < right[0][0] || right[0][0] == -1)
+		{
+			vv.push_back(left.front());
+			left.erase(left.begin());
+		}
+		else
+		{
+			vv.push_back(right.front());
+			right.erase(right.begin());
+		}
+	}	
+	while (!left.empty())
+	{
+		vv.push_back(left.front());
+		left.erase(left.begin());
+	}
+	while (!right.empty())
+	{
+		vv.push_back(right.front());
+		right.erase(right.begin());
+	}
+}
+
+
+void PmergeMe::mergeSortRecursively(std::vector<std::vector<int> > &vv)
+{
+	std::vector<std::vector<int> > left(vv.begin(), vv.begin() + vv.size() / 2);
+    std::vector<std::vector<int> > right(vv.begin() + vv.size() / 2, vv.end());
+
+    if (vv.size() <= 1)
+    {
+        return ;
+    }
+    mergeSortRecursively(left);
+    mergeSortRecursively(right);
+    merge(left, right, vv);
+}
+
 void	PmergeMe::createPairs(std::vector<int> &v, std::vector<std::vector<int> > &vv)
 {
-	size_t	nbVector = v.size() / 2.0;
+	size_t	nbVector = std::ceil(v.size() / 2.0); //ceil to put the value higher if it is a decimal 10.25 is 11
 
 	vv.resize(nbVector);
+	std::cout << "size: " << nbVector << std::endl;
 	vv.assign(nbVector, std::vector<int>(2));
 	for (size_t i = 0 ; i < nbVector; i++)
 	{
-		if (( 2 * i + 1) == nbVector)
+		if (( 2 * i + 1) == v.size())
 		{
 			vv[i][0] = -1;
 			vv[i][1] = v[2*i];
@@ -123,62 +183,20 @@ void	PmergeMe::createPairs(std::vector<int> &v, std::vector<std::vector<int> > &
 			vv[i][0] = std::min(v[2 * i], v[2*i + 1]);
 			vv[i][1] = std::max(v[2 * i], v[2*i + 1]);
 		}
+		std::cout << "i=" << i << " value 0:" << vv[i][0] << std::endl;
+		std::cout << " value 1: " << vv[i][1] << std::endl;
 	}
 }
 
 void	PmergeMe::mergeInsertionSort(std::vector<int> &v)
 {
 	std::vector<std::vector<int> > vv;
+	std::vector<int>	S;
+
 	createPairs(v, vv);
+	mergeSortRecursively(vv);
+	insertationSort(S, v.size(), vv);
+
 }
 
-/*public static final int K = 5;
-public static void insertionSort(int A[], int p, int q) {
-    for (int i = p; i < q; i++) {
-        int tempVal = A[i + 1];
-        int j = i + 1;
-        while (j > p && A[j - 1] > tempVal) {
-            A[j] = A[j - 1];
-            j--;
-        }
-        A[j] = tempVal;
-    }
-    int[] temp = Arrays.copyOfRange(A, p, q +1);
-    Arrays.stream(temp).forEach(i -> System.out.print(i + " "));
-    System.out.println();
-}
 
-public static void merge(int A[], int p, int q, int r) {
-    int n1 = q - p + 1;
-    int n2 = r - q;
-    int[] LA = Arrays.copyOfRange(A, p, q +1);
-    int[] RA = Arrays.copyOfRange(A, q+1, r +1);
-    int RIDX = 0;
-    int LIDX = 0;
-    for (int i = p; i < r - p + 1; i++) {
-        if (RIDX == n2) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else if (LIDX == n1) {
-            A[i] = RA[RIDX];
-            RIDX++;
-        } else if (RA[RIDX] > LA[LIDX]) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else {
-            A[i] = RA[RIDX];
-            RIDX++;
-        }
-    }
-}
-
-public static void sort(int A[], int p, int r) {
-    if (r - p > K) {
-        int q = (p + r) / 2;
-        sort(A, p, q);
-        sort(A, q + 1, r);
-        merge(A, p, q, r);
-    } else {
-        insertionSort(A, p, r);
-    }
-}*/
