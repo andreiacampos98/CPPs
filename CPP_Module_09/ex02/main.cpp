@@ -8,6 +8,5 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	PmergeMe			merge(argc, argv);
-	
 	return 0;
 }
